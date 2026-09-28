@@ -1,0 +1,59 @@
+{
+  "random_seed": 42,
+  "n_train": 3428,
+  "n_test": 858,
+  "best_params": {
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "n_estimators": 500
+  },
+  "baseline_test_metrics": {
+    "MAE": 13021.583554669754,
+    "RMSE": 19943.74186910663,
+    "R2": -0.00016513902784565104
+  },
+  "rf_train_metrics": {
+    "MAE": 340.2332995915984,
+    "RMSE": 910.7531023223395,
+    "R2": 0.9980019552932337
+  },
+  "rf_test_metrics": {
+    "MAE": 958.5876365967395,
+    "RMSE": 2634.4837558087456,
+    "R2": 0.9825478284144425
+  },
+  "top_impurity_importances": {
+    "Crop_Type_Sugar cane": 0.7313,
+    "Crop_Type_Potatoes": 0.0921,
+    "Country_Nigeria": 0.0347,
+    "Rainfall_mm": 0.0261,
+    "Fertiliser_Use_kg_ha": 0.0242,
+    "Crop_Type_Cassava, fresh": 0.0199,
+    "Temperature_C": 0.0167,
+    "Country_Egypt": 0.0095,
+    "Country_Bangladesh": 0.0087,
+    "Year": 0.0066,
+    "Country_Ethiopia": 0.0048,
+    "Irrigation_Data_Missing": 0.004,
+    "Country_Australia": 0.0032,
+    "Irrigation_pct": 0.0028,
+    "Country_Pakistan": 0.0023
+  },
+  "top_permutation_importances": {
+    "Crop_Type_Sugar cane": 1.7123,
+    "Crop_Type_Potatoes": 0.2673,
+    "Crop_Type_Cassava, fresh": 0.0515,
+    "Fertiliser_Use_kg_ha": 0.0503,
+    "Country_Nigeria": 0.05,
+    "Temperature_C": 0.0366,
+    "Country_Bangladesh": 0.0275,
+    "Rainfall_mm": 0.0192,
+    "Country_Ethiopia": 0.01,
+    "Year": 0.0091,
+    "Irrigation_Data_Missing": 0.0061,
+    "Country_Argentina": 0.0049,
+    "Crop_Type_Maize (corn)": 0.0045,
+    "Country_India": 0.0043,
+    "Crop_Type_Rice": 0.0042
+  }
+}

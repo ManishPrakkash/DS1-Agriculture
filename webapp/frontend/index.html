@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crop Yield Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">&#127806;</span>
+    <div>
+      <h1>Why Is Crop Yield Different?</h1>
+      <p class="subtitle">Agricultural analytics &middot; FAOSTAT + NASA POWER &middot; Random Forest model</p>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="dashboard"><span class="tab-ic">&#128202;</span>Dashboard</button>
+    <button class="tab-btn" data-tab="predict"><span class="tab-ic">&#127793;</span>Predict Yield</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">AgriTech &middot; Data-driven farming practices</p>
+    <h2>Turning 22 countries of real agricultural data<br/>into evidence-based recommendations</h2>
+    <p class="hero-lede">A national-annual panel built from FAOSTAT and NASA POWER &mdash; cleaned, investigated
+      across six agricultural questions, and used to train a Random Forest model that explains
+      <strong id="hero-r2">&hellip;</strong> of the variance in held-out crop yield.</p>
+  </div>
+</section>
+
+<main>
+
+<section id="dashboard" class="tab-panel active">
+
+  <div id="stat-cards" class="stat-cards"></div>
+
+  <h2><span class="h-ic">&#128200;</span>Required Visualisations</h2>
+  <div id="charts" class="chart-grid"></div>
+
+  <h2><span class="h-ic">&#128161;</span>Key Insights</h2>
+  <div id="insights" class="insight-grid"></div>
+
+  <h2><span class="h-ic">&#9989;</span>Practical Action Plan</h2>
+  <div class="table-wrap">
+    <table id="action-plan">
+      <thead>
+        <tr><th>Evidence</th><th>Recommended action</th><th>Expected purpose</th><th>Limitation / condition</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <p class="limitations-note">
+    <strong>Scope note:</strong> full methodology, data dictionary, cleaning log and source
+    citations live in the project repository's documentation. This dataset is
+    <strong>country-crop-year level</strong>, not farm-level &mdash; there is no
+    <code>Farm_ID</code> or <code>Soil_Properties</code> field because no legally-open
+    real dataset provides those alongside climate/fertiliser/irrigation/yield (a documented
+    limitation, not a fabricated value).
+  </p>
+</section>
+
+<section id="predict" class="tab-panel">
+  <div class="predict-head">
+    <h2><span class="h-ic">&#127793;</span>Live Yield Prediction</h2>
+    <p class="predict-intro">
+      Wired directly to the trained <code>random_forest_yield_model.joblib</code> &mdash;
+      enter a hypothetical country-crop-year scenario to see the model's predicted yield in real time.
+    </p>
+  </div>
+
+  <div class="predict-layout">
+    <form id="predict-form" class="predict-form">
+      <label>Country
+        <select id="f-country" required></select>
+      </label>
+      <label>Crop type
+        <select id="f-crop" required></select>
+      </label>
+      <div class="field-row">
+        <label>Year
+          <input type="number" id="f-year" required />
+        </label>
+        <label>Irrigation share (%)
+          <input type="number" id="f-irrigation" step="0.1" min="0" max="100" required />
+        </label>
+      </div>
+      <label>Fertiliser use (kg/ha)
+        <input type="number" id="f-fertiliser" step="0.1" required />
+      </label>
+      <div class="field-row">
+        <label>Avg. temperature (&deg;C)
+          <input type="number" id="f-temperature" step="0.1" required />
+        </label>
+        <label>Annual rainfall (mm)
+          <input type="number" id="f-rainfall" step="0.1" min="0" required />
+        </label>
+      </div>
+      <button type="submit"><span>Predict yield</span> &rarr;</button>
+    </form>
+
+    <div id="predict-result" class="predict-result">
+      <div class="placeholder-wrap">
+        <span class="placeholder-ic">&#127908;</span>
+        <p class="placeholder">Fill in the form and click "Predict yield" to see the model's output here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Data: FAOSTAT (FAO) &amp; NASA POWER, 2000&ndash;2022, 22 countries &times; 10 crops. Model: scikit-learn RandomForestRegressor. No causal claims are made from this observational data.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

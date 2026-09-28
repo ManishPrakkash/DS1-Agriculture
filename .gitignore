@@ -1,0 +1,13 @@
+# Raw downloaded data -- re-downloadable via scripts/01_download_data.py
+data/raw/
+
+# Trained model binary -- regenerable via scripts/07_random_forest_model.py
+# (148MB, exceeds GitHub's 100MB hard limit)
+model/random_forest_yield_model.joblib
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
